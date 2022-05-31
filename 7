@@ -1,0 +1,34 @@
+#!/bin/bash
+
+./7_2&
+while true
+
+do
+sleep 10
+read line
+
+case $line in
+
+"term")
+
+kill -SIGTERM $(cat mypid)
+
+exit
+
+;;
+
+"+")
+
+kill -USR1 $(cat mypid)
+
+;;
+
+"*")
+kill -USR2 $(cat mypid)
+;;
+
+esac
+done
+
+
+

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+./6_2&
+
+while true
+
+do
+sleep 10
+read line
+
+case $line in
+
+"term")
+
+echo "SEND TERM"
+
+kill -SIGTERM $(cat mypid)
+
+exit
+
+;;
+
+esac
+
+done
